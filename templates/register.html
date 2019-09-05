@@ -1,0 +1,133 @@
+{%extends 'layout.html'%}
+
+{%block body%}
+    <div class="limiter">
+        <div class="container-login100" style="background-image: url('images/bg-01.jpg');">
+            <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+                <form class="login100-form validate-form" action="/registerprocess" id="registerSubmit" method="post">
+                    <span class="login100-form-title p-b-49">
+                        Register
+                    </span>
+                    <div class="m-b-23" data-validate = "User type is required">
+                        <span class="label-input100">Who are you?</span><br>
+                        <label style="padding-left: 7px"><input type="radio" name="usertype" value="buyer"> Buyer</label>
+                        <label style="padding-left: 7px"><input type="radio" name="usertype" value="seller"> Seller</label>
+                    </div>
+                    <div class="wrap-input100 validate-input m-b-23" data-validate = "Name is required">
+                        <span class="label-input100">Name</span>
+                        <input class="input100" type="text" name="username" placeholder="Type your Name" autocomplete="off">
+                        <span class="focus-input100" data-symbol="&#xf206;"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input m-b-23" data-validate = "Email is required">
+                        <span class="label-input100">Email</span>
+                        <input class="input100" type="text" name="email" placeholder="Type your Email" autocomplete="off">
+                        <span class="focus-input100" data-symbol="&#xf206;"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input m-b-23" data-validate="Password is required">
+                        <span class="label-input100">Password</span>
+                        <input class="input100" type="password" name="pass" placeholder="Type your password">
+                        <span class="focus-input100" data-symbol="&#xf190;"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input m-b-23" data-validate="Password is required">
+                        <span class="label-input100"> Confirm Password</span>
+                        <input class="input100" type="password" name="pass" placeholder="Type your password">
+                        <span class="focus-input100" data-symbol="&#xf190;"></span>
+                    </div>
+                    
+                    <div class="wrap-input100 validate-input m-b-23" data-validate = "Mobile number is required">
+                        <span class="label-input100">Mobile Number</span>
+                        <input class="input100" type="text" name="mobile" placeholder="Type your Mobile number" autocomplete="off">
+                        <span class="focus-input100" data-symbol="&#xf206;"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input m-b-23" data-validate = "Company Name is required">
+                        <span class="label-input100">Company Name</span>
+                        <input class="input100" type="text" name="company" placeholder="Type your Company Name" autocomplete="off">
+                        <span class="focus-input100" data-symbol="&#xf206;"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input m-b-23" data-validate = "Fax is required">
+                        <span class="label-input100">Fax</span>
+                        <input class="input100" type="text" name="fax" placeholder="Type your Fax" autocomplete="off">
+                        <span class="focus-input100" data-symbol="&#xf206;"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input m-b-23" data-validate = "Adddress is required">
+                        <span class="label-input100">Address</span>
+                        <input class="input100" type="text" name="address" placeholder="Type your Address" autocomplete="off">
+                        <span class="focus-input100" data-symbol="&#xf206;"></span>
+                    </div>
+                    <div class="m-b-23" data-validate = "Please accept terms and conditions">
+                        <label><input type="checkbox" id="checky" value="terms and conditions" name="terms"> I accept the <a href="#" data-toggle="modal" data-target="#placingorderModal">terms and conditions.</a></label>
+                    </div>
+                   
+                </form>
+                 <div class="container-login100-form-btn">
+                        <div class="wrap-login100-form-btn">
+                            <div class="login100-form-bgbtn"></div>
+                            <button id="registerButton" disabled class="login100-form-btn" data-toggle="modal" data-target="#registerSuccess">
+                                Register
+                            </button>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="placingorderModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Terms and conditions</h4>
+        </div>
+        <div class="modal-body">
+          <p>A Terms and Conditions agreement is the agreement that includes the terms, the rules and the guidelines of acceptable behavior, plus other useful sections, to which users must agree in order to use or access your website and mobile app.</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" data-dismiss="modal" class="btn btn-primary">OK</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+<div class="modal fade" id="registerSuccess" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Thank you for registering on Passion</h4>
+        </div>
+        <div class="modal-body">
+          <p>An email with account details will be sent to your registered email id.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary register-submit">OK</button></a>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type='text/javascript'>
+    $('#checky').click(function(){
+        if(!$(this).is(':checked')){
+             $('#registerButton').attr("disabled","disabled");   
+        } else {
+            $('#registerButton').removeAttr('disabled');
+        }
+    });
+
+    $('.register-submit').click(function(){
+        $('#registerSubmit')[0].submit();
+    });
+
+</script>
+{%endblock%}

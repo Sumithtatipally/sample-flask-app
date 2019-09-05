@@ -1,0 +1,15 @@
+{% block content %}
+	{% if session['username'] %}
+	<div class="row">
+		<div class="col-md-12"> 
+			<a href="#" class="btn btn-danger" data-toggle="modal" data-target="#placingorderModal">Place order</a>
+		</div>
+	</div>
+    {% else %}
+	 <div class="row">
+	 <div class="col-md-12"> 
+			<a href="#" class="btn btn-danger" data-toggle="modal" data-target="#conformationModal">Need more info</a>
+		</div>
+	</div>
+    {% endif %}
+{% endblock content %}

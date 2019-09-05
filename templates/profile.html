@@ -1,0 +1,88 @@
+{%extends 'layout.html'%}
+
+{%block body%}
+    <div class="limiter">
+        <div class="container-login100" style="background-image: url('images/bg-01.jpg');">
+            <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+                <form class="login100-form validate-form" action="/registerprocess" id="registerSubmit" method="post">
+                    <span class="login100-form-title p-b-49">
+                        Profile details
+                    </span>
+
+                    <div class="wrap-input100 validate-input m-b-23" data-validate = "Name is required">
+                        <span class="label-input100">Name</span>
+                        <input class="input100" type="text" name="username" placeholder="Type your Name" autocomplete="off" value="{{ session['username'] }}">
+                        <span class="focus-input100" data-symbol="&#xf206;"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input m-b-23" data-validate = "Email is required">
+                        <span class="label-input100">Email</span>
+                        <input class="input100" type="text" name="email" placeholder="Type your Email" autocomplete="off" value="{{ session['email'] }}">
+                        <span class="focus-input100" data-symbol="&#xf206;"></span>
+                    </div>
+                    
+                    <div class="wrap-input100 validate-input m-b-23" data-validate = "Mobile number is required">
+                        <span class="label-input100">Mobile Number</span>
+                        <input class="input100" type="text" name="mobile" placeholder="Type your Mobile number" autocomplete="off" value="{{ session['mobile'] }}">
+                        <span class="focus-input100" data-symbol="&#xf206;"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input m-b-23" data-validate = "Company Name is required">
+                        <span class="label-input100">Company Name</span>
+                        <input class="input100" type="text" name="company" placeholder="Type your Company Name" autocomplete="off" value="{{ session['company'] }}">
+                        <span class="focus-input100" data-symbol="&#xf206;"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input m-b-23" data-validate = "Fax is required">
+                        <span class="label-input100">Fax</span>
+                        <input class="input100" type="text" name="fax" placeholder="Type your Fax" autocomplete="off" value="{{ session['fax'] }}">
+                        <span class="focus-input100" data-symbol="&#xf206;"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input m-b-23" data-validate = "Adddress is required">
+                        <span class="label-input100">Address</span>
+                        <input class="input100" type="text" name="address" placeholder="Type your Address" autocomplete="off" value="{{ session['address'] }}">
+                        <span class="focus-input100" data-symbol="&#xf206;"></span>
+                    </div>
+                   
+                </form>
+                 <div class="container-login100-form-btn">
+                        <div class="wrap-login100-form-btn">
+                            <div class="login100-form-bgbtn"></div>
+                                <button id="registerButton" class="login100-form-btn" data-toggle="modal" data-target="#registerSuccess">
+                                Update Profile
+                                </button>
+                            </div>
+                        </div>
+                </div>
+        </div>
+    </div>
+    
+<div class="modal fade" id="registerSuccess" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Profile update</h4>
+        </div>
+        <div class="modal-body">
+          <p>Your profile details updated successfully</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary register-submit">OK</button></a>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type='text/javascript'>
+    $('.register-submit').click(function(){
+        $('#registerSubmit')[0].submit();
+    });
+
+</script>
+{%endblock%}

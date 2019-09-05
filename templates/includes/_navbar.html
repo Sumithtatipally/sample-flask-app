@@ -1,0 +1,18 @@
+<nav class="navbar navbar-default" style="margin-bottom: 0px; margin-top: 0px" >
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Passion</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+    	{% block content %}
+		    {% if session['username'] %}
+		        <li><a href="/profile">{{ session['username'] }}</a></li>
+      			<li><a href="/logout">Logout</a></li>
+		    {% else %}
+		        <li><a href="/login">Login</a></li>
+      			<li><a href="/register">Register</a></li>
+		    {% endif %}
+		{% endblock content %}
+    </ul>
+  </div>
+</nav>
